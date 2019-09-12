@@ -18,14 +18,6 @@
  */
 
 /**
- * Set the Block Editor translations
- */
-function block_editor_customizations_set_script_translations() {
-	wp_set_script_translations( 'block-editor-customizations-editor', 'block-editor-customizations', plugin_dir_path( __FILE__ ) . 'languages' );
-}
-add_action( 'init', 'block_editor_customizations_set_script_translations' );
-
-/**
  * Register Gutenberg scripts and styles
  *
  * @link https://www.billerickson.net/block-styles-in-gutenberg/
@@ -38,13 +30,36 @@ function block_editor_customizations_gutenberg_register_scripts() {
 		filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/editor.js' ),
 		true
 	);
+
+	wp_register_style(
+		'block-editor-customizations-editor',
+		plugins_url( 'assets/css/editor.css', __FILE__ ),
+		array(),
+		filemtime( plugin_dir_path( __FILE__ ) . 'assets/css/editor.css' )
+	);
+
+	wp_set_script_translations( 'block-editor-customizations-editor', 'block-editor-customizations', plugin_dir_path( __FILE__ ) . 'languages' );
+
+	register_block_type(
+		'core/button',
+		array(
+			'style'  => 'block-editor-customizations-editor',
+			'script' => 'block-editor-customizations-editor',
+		)
+	);
 }
-add_action( 'init', 'block_editor_customizations_gutenberg_register_scripts' );
+add_action( 'enqueue_block_editor_assets', 'block_editor_customizations_gutenberg_register_scripts' );
 
 /**
- * Enqueue scripts
+ * Enqueue frontend scripts
  */
-function block_editor_customizations_gutenberg_enqueue_scripts() {
-	wp_enqueue_script( 'block-editor-customizations-editor' );
+function block_editor_customizations_wp_register_scripts() {
+	wp_register_style(
+		'block-editor-customizations-editor',
+		plugins_url( 'assets/css/editor.css', __FILE__ ),
+		array(),
+		filemtime( plugin_dir_path( __FILE__ ) . 'assets/css/editor.css' )
+	);
+	wp_enqueue_style( 'block-editor-customizations-editor' );
 }
-add_action( 'enqueue_block_editor_assets', 'block_editor_customizations_gutenberg_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'block_editor_customizations_wp_register_scripts' );
