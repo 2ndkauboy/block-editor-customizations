@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Block Editor Customizations 0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/block-editor-customizations\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-12 16:07+0200\n"
+"PO-Revision-Date: 2019-09-12 16:08+0200\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Domain: block-editor-customizations\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+msgid "Block Editor Customizations"
+msgstr "Block Editor Customizations"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://kau-boys.de"
+msgstr "https://kau-boys.de"
+
+#. Description of the plugin
+msgid "Some customizations of core blocks"
+msgstr "Einige Anpassungen an Core-Blocks"
+
+#. Author of the plugin
+msgid "Bernhard Kau"
+msgstr "Bernhard Kau"

@@ -1,0 +1,15 @@
+include:
+  - 'https://gitlab.vcat.de/gitlab/gitlab-ci/raw/master/templates/.ssh-git-deployment.yml'
+  - 'https://gitlab.vcat.de/gitlab/gitlab-ci/raw/master/templates/deploy-ssh-production.yml'
+  - 'https://gitlab.vcat.de/gitlab/gitlab-ci/raw/master/templates/test-phpcs-wordpress.yml'
+
+variables:
+  SSH_HOST: vcat.de@vcat.de
+  SSH_DOCUMENT_ROOT: ~/domains/blog.vcat.de/public_html/wp-content/plugins/block-editor-customizations
+
+deploy:production:
+  environment:
+    url: https://blog.vcat.de
+  only:
+    - tags
+  when: manual
